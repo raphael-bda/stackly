@@ -65,8 +65,4 @@ E pronto!
 
 ---
 
-## 📄 Licença
-
----
-
 Feito por Raphael Barbosa.
