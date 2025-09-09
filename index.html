@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stackly - Seus Links em Um Lugar</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="matrix-bg"></canvas>
+    
+    <div class="container">
+        <header>
+            <img src="assets/photoprofile.jpg" alt="Foto de perfil" class="profile-pic">
+            <div class="profile-name">Raphael Barbosa</div>
+            <h1 class="logo">Stackly<span class="cursor">_</span></h1>
+            <p class="typing-text">Escolha sua realidade...</p>
+        </header>
+        
+        <div class="controls">
+            <button class="control-btn" id="matrix-intensity">Intensidade: ★</button>
+        </div>
+        
+        <main>
+            <div class="links-container" id="links-container">
+                </div>
+        </main>
+        
+        <div class="theme-selector">
+            <div class="theme-btn theme-matrix" data-theme="matrix" title="Tema Matrix Verde"></div>
+            <div class="theme-btn theme-red" data-theme="red" title="Tema Vermelho"></div>
+        </div>
+        
+        <footer>
+            <p>© 2025 Stackly | Feito por Raphael Barbosa</p>
+            <div class="social-stats">
+                <div class="stat">👁️ <span id="view-count">1024</span></div>
+                <div class="stat">🔗 <span id="click-count">368</span></div>
+            </div>
+        </footer>
+    </div>
+        <script src="script.js"></script>
+</body>
+</html>
