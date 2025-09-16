@@ -35,11 +35,11 @@ O projeto não requer nenhuma dependência ou build. Basta seguir os passos:
 
 1.  Clone este repositório:
     ```bash
-    git clone [https://github.com/SEU-USUARIO/SEU-REPOSITORIO.git](https://github.com/SEU-USUARIO/SEU-REPOSITORIO.git)
+    git clone [https://github.com/raphael-bda/staclky.git](https://github.com/raphael-bda/stackly.git)
     ```
 2.  Navegue até a pasta do projeto:
     ```bash
-    cd SEU-REPOSITORIO
+    cd stackly
     ```
 3.  Abra o arquivo `index.html` diretamente no seu navegador de preferência.
 
@@ -57,7 +57,7 @@ E pronto!
     ```javascript
     const links = [
         { title: "Meu Portfólio", url: "[https://seu-portfolio.com](https://seu-portfolio.com)", clicks: 0 },
-        { title: "GitHub", url: "[https://github.com/seu-usuario](https://github.com/seu-usuario)", clicks: 0 },
+        { title: "GitHub", url: "[https://github.com/raphael-bda](https://github.com/raphael-bda)", clicks: 0 },
         // Adicione ou remova links conforme necessário
     ];
     ```
