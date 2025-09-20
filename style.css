@@ -24,7 +24,6 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
-    overflow: hidden;
     padding: 20px;
     transition: color 0.5s ease;
 }
@@ -36,7 +35,7 @@ body {
     width: 100%;
     height: 100%;
     z-index: -1;
-    opacity: 0.15;
+    opacity: 0.2; /* Aumentado para melhor visibilidade no mobile */
     pointer-events: none;
 }
 
@@ -183,6 +182,7 @@ header {
     white-space: nowrap;
     margin: 0 auto;
     animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+    animation-fill-mode: forwards; /* Garante que a animação mantenha o estado final */
 }
 
 @keyframes typing {
