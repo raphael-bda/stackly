@@ -35,7 +35,7 @@ O projeto não requer nenhuma dependência ou build. Basta seguir os passos:
 
 1.  Clone este repositório:
     ```bash
-    git clone [https://github.com/raphael-bda/staclky.git](https://github.com/raphael-bda/stackly.git)
+    git clone [https://github.com/raphael-bda/stackly.git](https://github.com/raphael-bda/stackly.git)
     ```
 2.  Navegue até a pasta do projeto:
     ```bash
@@ -49,19 +49,27 @@ E pronto!
 
 ## Como Personalizar
 
-É muito fácil adaptar o Stackly para o seu próprio uso:
+É muito fácil adaptar o Stackly para o seu próprio uso. Todas as configurações principais estão centralizadas no arquivo `config.js`:
 
-1.  **Estrutura:** Separe os arquivos `style.css` e `script.js` do `index.html` para melhor organização (se ainda não o fez).
-2.  **Foto de Perfil:** Substitua o arquivo `assets/photoprofile.jpg` pela sua foto.
-3.  **Informações e Links:** Abra o arquivo `script.js` e modifique o array `links` com seus próprios títulos e URLs.
+1.  **Foto de Perfil:** Substitua o arquivo `assets/photoprofile.jpg` pela sua foto e, se desejar, atualize o caminho no `config.js`.
+2.  **Informações e Links:** Abra o arquivo `config.js` e modifique o objeto `userConfig` com seu nome, subtítulo e a lista de links que deseja exibir.
     ```javascript
-    const links = [
-        { title: "Meu Portfólio", url: "[https://seu-portfolio.com](https://seu-portfolio.com)", clicks: 0 },
-        { title: "GitHub", url: "[https://github.com/raphael-bda](https://github.com/raphael-bda)", clicks: 0 },
-        // Adicione ou remova links conforme necessário
-    ];
+    const userConfig = {
+        // --- INFORMAÇÕES DO PERFIL ---
+        profileName: "Seu Nome Aqui",
+        profileImage: "assets/photoprofile.jpg",
+        subtitle: "Sua frase de efeito...",
+
+        // --- LINKS ---
+        links: [
+            { title: "Meu Portfólio", url: "[https://seu-portfolio.com](https://seu-portfolio.com)" },
+            { title: "GitHub", url: "[https://github.com/seu-usuario](https://github.com/seu-usuario)" },
+            // Adicione ou remova links conforme necessário
+        ],
+
+        // ...
+    };
     ```
-4.  **Nome:** Altere o nome de perfil diretamente no `index.html` ou, como sugestão de melhoria, adicione-o a um objeto de configuração no JavaScript.
 
 ---
 
