@@ -17,7 +17,7 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
-    padding: 20px;
+    /* O padding foi movido para o container para um controle mais preciso */
     transition: color 0.5s ease, filter 0.5s ease;
     overflow: hidden;
 }
@@ -157,6 +157,11 @@ body.crt-effect {
     opacity: 0;
     transition: opacity 1s ease 0.5s;
     pointer-events: none;
+    /* Adicionado para garantir que o flexbox do body funcione corretamente */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #main-content.visible {
@@ -178,6 +183,8 @@ body.crt-effect {
     max-width: 500px;
     text-align: center;
     z-index: 1;
+    /* Padding adicionado aqui para garantir espaçamento interno responsivo */
+    padding: 20px;
 }
 
 header {
@@ -503,7 +510,22 @@ footer {
 /* ============================================================================= */
 @media (max-width: 600px) {
     .container {
-        width: 90%;
-        margin-top: 60px;
+        /* Garante que o container não ultrapasse a largura da tela */
+        width: 90vw; 
+        padding: 15px;
+    }
+
+    .logo-top-left {
+        /* Reduz um pouco o logo em telas menores */
+        font-size: 1.5rem;
+    }
+
+    .profile-pic {
+        width: 100px;
+        height: 100px;
+    }
+
+    .boot-line {
+        font-size: 1rem;
     }
 }
