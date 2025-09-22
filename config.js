@@ -1,16 +1,19 @@
 // Personalize as informações abaixo para deixar a página com a sua cara.
-// Não é necessário mexer nos outros arquivos (index.html, style.css, script.js) para a personalização básica.
-
 const userConfig = {
     // --- INFORMAÇÕES DO PERFIL ---
     profileName: "Raphael Barbosa",
     profileImage: "assets/photoprofile.jpg",
-    subtitle: "Escolha sua realidade...", // O texto que aparece com efeito de digitação
+
+    // --- SAUDAÇÃO SENSÍVEL AO TEMPO ---
+    // O script selecionará a saudação apropriada com base na hora do dia.
+    subtitles: {
+        morning: "> Good morning. Initializing systems...",
+        afternoon: "> Systems online. Good afternoon.",
+        evening: "> Entering low-power mode. Good evening.",
+        night: "> Night mode activated. Welcome."
+    },
 
     // --- LINKS ---
-    // Adicione ou remova links conforme necessário.
-    // O ícone é detectado automaticamente pela URL, mas você pode forçar um ícone específico.
-    // Ícones disponíveis: '🔗', '🐱' (github), '💼' (linkedin), '📸' (instagram), '𝕏' (twitter/x)
     links: [
         { title: "Meu Portfólio", url: "#" },
         { title: "GitHub", url: "https://github.com/raphael-bda" },
@@ -20,7 +23,6 @@ const userConfig = {
     ],
 
     // --- ESTATÍSTICAS INICIAIS ---
-    // Para dar a impressão de que a página já tem um histórico.
     initialViews: 1024,
     initialClicks: 368
 };
