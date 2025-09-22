@@ -1,4 +1,4 @@
-# Stackly 2.0 - Immersive Link-in-Bio
+# Stackly - Immersive Link-in-Bio
 
 ![Status do Projeto](https://img.shields.io/badge/status-concluído-brightgreen)
 
