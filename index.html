@@ -4,41 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stackly</title>
-    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link id="favicon" rel="icon" href="assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body data-theme="matrix">
+
+    <div class="scanlines-overlay"></div>
     <canvas id="matrix-bg"></canvas>
     
-    <div class="container">
-        <header>
-            <img src="" alt="Foto de perfil" class="profile-pic" id="profile-pic">
-            <div class="profile-name" id="profile-name"></div>
-            <h1 class="logo">Stackly<span class="cursor">_</span></h1>
-            <p class="typing-text" id="subtitle"></p>
-        </header>
+    <div id="boot-screen">
+        <p class="boot-line" id="boot-line-1">> STACKLY OS v2.0 INITIALIZING...</p>
+        <p class="boot-line" id="boot-line-2">> LOADING USER_PROFILE.DAT...</p>
+        <p class="boot-line" id="boot-line-3">> CONNECTION ESTABLISHED.</p>
+        <p class="boot-line" id="boot-line-4">> RUNNING UI.EXE...<span class="cursor">_</span></p>
+    </div>
+
+    <div id="console-overlay">
+        <div id="console-content"></div>
+        <div class="console-prompt">> PRESS '`' TO EXIT_</div>
+    </div>
+
+    <div id="main-content">
+        <h1 class="logo logo-top-left">Stackly<span class="cursor">_</span></h1>
         
-        <div class="controls">
-            <button class="control-btn" id="matrix-intensity" title="Alterar velocidade da animação de fundo">Intensidade: ★</button>
-        </div>
-        
-        <main>
-            <div class="links-container" id="links-container">
-                </div>
-        </main>
-        
-        <div class="theme-selector">
-            <div class="theme-btn theme-matrix" data-theme="matrix" title="Ativar tema Matrix Verde"></div>
-            <div class="theme-btn theme-red" data-theme="red" title="Ativar tema Vermelho Alerta"></div>
-        </div>
-        
-        <footer>
-            <p>© 2025 Stackly | Feito por Raphael Barbosa</p>
-            <div class="social-stats">
-                <div class="stat">👁️ <span id="view-count">0</span></div>
-                <div class="stat">🔗 <span id="click-count">0</span></div>
+        <div class="container">
+            <header>
+                <img src="assets/photoprofile.jpg" alt="Foto de perfil" class="profile-pic" id="profile-pic">
+                <div class="profile-name" id="profile-name"></div>
+                <p class="typing-text" id="subtitle"></p>
+            </header>
+            
+            <div class="controls">
+                <button class="control-btn" id="matrix-intensity" title="Alterar velocidade da animação de fundo">Intensidade: ★</button>
             </div>
-        </footer>
+            
+            <main>
+                <nav class="links-container" id="links-container"></nav>
+            </main>
+            
+            <footer>
+                <div class="footer-stats">
+                    <div class="stat">👁️ <span id="view-count">0</span></div>
+                    <div class="stat">🔗 <span id="click-count">0</span></div>
+                </div>
+                <div class="status-panel">
+                    <div class="status-led"></div>
+                    <span class="status-message" id="status-message">> STATUS: ONLINE</span>
+                </div>
+            </footer>
+        </div>
+
+        <div class="theme-panel-wrapper">
+            <div class="theme-panel" id="theme-panel">
+                <div class="theme-btn" data-theme="matrix" data-color="#00FF00" style="--theme-color: #00FF00;" title="Matrix"></div>
+                <div class="theme-btn" data-theme="red" data-color="#FF0000" style="--theme-color: #FF0000;" title="Red"></div>
+                <div class="theme-btn" data-theme="cyan" data-color="#00FFFF" style="--theme-color: #00FFFF;" title="Cyan"></div>
+                <div class="theme-btn" data-theme="pink" data-color="#FF00FF" style="--theme-color: #FF00FF;" title="Pink"></div>
+                <div class="theme-btn" data-theme="white" data-color="#FFFFFF" style="--theme-color: #FFFFFF;" title="White"></div>
+                <hr class="panel-divider">
+                <div class="effects-row">
+                    <button class="panel-effect-btn" id="sound-toggle" title="Ativar/Desativar Sons">
+                        <svg id="sound-on-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M18.001 20.001c-2.314 0-4.43-1.045-5.87-2.736l-2.622-3.08-1.509-.126a1 1 0 0 1-1-1v-6a1 1 0 0 1 1-1h1.509l2.622-3.08C13.57 3.047 15.687 2 18.001 2c1.654 0 3 1.346 3 3v12c0 1.654-1.346 3-3 3z"></path></svg>
+                        <svg id="sound-off-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24" style="display: none;"><path d="m18 1.999-6.643 7.794 6.643 7.795c1.654 0 3-1.346 3-3V5c0-1.654-1.346-3.001-3-3.001zM7.001 7.143l-2.622 3.08-1.508.126a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h1.508l2.622 3.08c.599.704 1.36 1.139 2.185 1.455L7.001 7.143z"></path></svg>
+                    </button>
+                    <button class="panel-effect-btn" id="scanlines-toggle" title="Ativar/Desativar Scanlines">
+                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M20 3H4C2.897 3 2 3.897 2 5v11c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2zm0 2v11H4V5h16zM6 14h12v2H6v-2z"></path></svg>
+                    </button>
+                    <button class="panel-effect-btn" id="crt-toggle" title="Ativar/Desativar Efeito CRT">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M12.001 1.999c-5.524 0-10.001 4.477-10.001 10s4.477 10 10.001 10 10.001-4.477 10.001-10-4.477-10-10.001-10zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8zM9 13l-2 3h10l-4-6-2.5 4L9 13z"></path></svg>
+                    </button>
+                </div>
+            </div>
+            <button class="theme-trigger-btn" id="theme-trigger-btn" title="Alterar tema">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
+            </button>
+        </div>
     </div>
     
     <script src="config.js"></script>
